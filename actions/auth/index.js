@@ -33,7 +33,7 @@ module.exports = (app) => {
         function logInUser (user) {
             app.horizon.adapter.getHorizonUser(req.body.username)
             .then(_ => {
-                return res.json(user && app.horizon.adapter.makeLoginReply(app.hzConfig.token_secret, user._id));
+                return res.json(user && app.horizon.adapter.makeLoginReply(app.hzConfig.token_secret, user.email));
             })
             .catch(res.error);
         }
