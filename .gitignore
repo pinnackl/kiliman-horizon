@@ -41,3 +41,6 @@ jspm_packages
 .hz/config-prod.toml
 config/config-dev.json
 config/config-prod.json
+
+# Test application
+bower_components
