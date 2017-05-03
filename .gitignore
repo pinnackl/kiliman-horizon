@@ -35,3 +35,9 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# Kiliman Horizon configs
+.hz/config-dev.toml
+.hz/config-prod.toml
+config/config-dev.json
+config/config-prod.json

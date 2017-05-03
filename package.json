@@ -1,0 +1,38 @@
+{
+  "name": "kiliman-horizon",
+  "version": "1.0.0",
+  "description": "Kiliman Horizon is an embedded Horizon server with custom logics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pinnackl/kiliman-horizon.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pinnackl/kiliman-horizon/issues"
+  },
+  "homepage": "https://github.com/pinnackl/kiliman-horizon#readme",
+  "dependencies": {
+    "@horizon/server": "^2.0.0",
+    "bcrypt": "^1.0.2",
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.1",
+    "colors": "^1.1.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.2",
+    "express-session": "^1.15.2",
+    "fs": "0.0.1-security",
+    "jsonwebtoken": "^7.4.0",
+    "lodash": "^4.17.4",
+    "mongoose": "^4.9.6",
+    "mongoose-timestamps": "0.0.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "toml": "^2.3.2"
+  }
+}
