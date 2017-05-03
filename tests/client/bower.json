@@ -1,0 +1,17 @@
+{
+  "name": "Kiliman-Horizon-client-test",
+  "homepage": "https://github.com/pinnackl/kiliman-horizon",
+  "description": "Kiliman-Horizon-client-test",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "horizon-client": "git@github.com:syu93/horizon-client.git"
+  }
+}

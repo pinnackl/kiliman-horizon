@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kiliman-Horizon custom auth Test</title>
+    <script src="/bower_components/horizon-client/dist/horizon.js"></script>
+</head>
+<body>
+    <h1>Kiliman-Horizon custom auth Test</h1>
+    <script>
+        console.log("App is ready to rock!");
+        var horizon = Horizon({
+            host: 'localhost:8181',
+            authType: {
+                storeLocally: false,
+                token: "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBsb3ArOEBwbG9wLmNvbSIsInByb3ZpZGVyIjpudWxsLCJpYXQiOjE0OTM4MzMzMjIsImV4cCI6MTQ5MzgzNjkyMn0.dFdGyk7dkDWLXzfKOpggUITqur3O-g9L3AgH4m8oDoZWXsrPrep-AWN8KVDql6_pEavg8Vk9Uq-z3w0u2aOAOA",
+            }
+        });
+ 
+        const todos = horizon('todos');
+        todos.store({
+            title: "Kill Ulric brothers!",
+            data: [
+                'Ed',
+                'Al',
+                'Winry'
+            ]
+        });
+
+        horizon.status(function(status) {
+            console.log(status);
+        }); 
+
+    </script>
+</body>
+</html>
