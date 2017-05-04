@@ -27,10 +27,11 @@ module.exports = (app) => {
     };
 
     function comparePassword(password, userPassword, callback) {
-       bcrypt.compare(password, userPassword, function(err, isPasswordMatch) {
-          if (err) 
-            return callback(err);
-          return callback(null, isPasswordMatch);
-       });
+        bcrypt.compare(password, userPassword, function(err, isPasswordMatch) {
+            if (err) {
+                return callback(err);
+            }
+            return callback(null, isPasswordMatch);
+        });
     };
 };
