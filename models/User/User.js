@@ -11,7 +11,7 @@ module.exports = (app) => {
         password: {
             type: String,
             required: true,
-            select: false
+            // select: false // FIXME : Not sure if we need to retreive the password as well
         }
     });
 
