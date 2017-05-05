@@ -3,15 +3,16 @@ module.exports = (app) => {
 
     return (req, res, next) => {
         app.middlewares.passport.use(new app.middlewares.passportLocal.Strategy(function(username, password, done) {
-            console.log(username, password);
-            // levelUserDb.checkPassword(username, password, function(err) {
-            //     if (err) {
-            //         done(err);
-            //     } else {
-            //         getHorizonUser(username)
-            //             .then(user => done(null, user)).catch(done);
-            //     }
-            // });
+
+            app.middlewares.crypt.comparePassword(password, req.user.password, function (err, match) {
+                if (err) {
+                    done(err);
+                } else if (match) {
+                    app.horizon.adapter.getHorizonUser(req.user.email)
+                        .then(user => done(null, user)).catch(done);
+                }
+            });
+
             next();
         }));
         app.middlewares.passport.serializeUser((user, done) => {
