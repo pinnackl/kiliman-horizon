@@ -8,26 +8,30 @@
     <h1>Kiliman-Horizon custom auth Test</h1>
     <script>
         console.log("App is ready to rock!");
-        var horizon = Horizon({
+        var horizon = new Horizon({
             host: 'localhost:8181',
             authType: {
-                storeLocally: false,
-                token: "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBsb3ArOEBwbG9wLmNvbSIsInByb3ZpZGVyIjpudWxsLCJpYXQiOjE0OTM4MzMzMjIsImV4cCI6MTQ5MzgzNjkyMn0.dFdGyk7dkDWLXzfKOpggUITqur3O-g9L3AgH4m8oDoZWXsrPrep-AWN8KVDql6_pEavg8Vk9Uq-z3w0u2aOAOA",
+                storeLocally: true,
+                token: "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBsb3ArOUBwbG9wLmNvbSIsInByb3ZpZGVyIjpudWxsLCJpYXQiOjE0OTM4MzU5NTUsImV4cCI6MTQ5MzgzOTU1NX0.Pmv0H87nvy2_4vkD7z9WU0OaiI8ZdUQTeG7gwaVJIF2gZp8kufQ6AUW7gQCrusJCakW2q4PJxfhzSSpZ5S2dVQ",
             }
         });
  
         const todos = horizon('todos');
         todos.store({
-            title: "Kill Ulric brothers!",
+            title: "We are the Homonculus!",
             data: [
-                'Ed',
-                'Al',
-                'Winry'
+                'Pride',
+                'Grid',
+                'Wrath',
+                'Envy',
+                'Glutony',
+                'Lust'
             ]
         });
 
         horizon.status(function(status) {
             console.log(status);
+            horizon.currentUser().fetch().subscribe( (user) => console.log(JSON.stringify(user)) );
         }); 
 
     </script>
