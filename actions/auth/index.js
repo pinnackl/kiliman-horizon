@@ -4,8 +4,9 @@ module.exports = (app) => {
         signup
     };
 
+    // Return the user access token
     function login (req, res, next) {
-        return res.send("<h1>Kiliman Auth</h1>");
+        return res.json(req.user && app.horizon.adapter.makeLoginReply(app.hzConfig.token_secret, req.user.email));
     }
 
     // Create a new user if not exist
