@@ -11,6 +11,7 @@ module.exports = (app) => {
         passportLocal: require('passport-local'),
         jwt: require('jsonwebtoken'),
         ensureFields: require('./ensureFields'),
+        findUser: require('./findUser'),
         crypt: require('./crypt')(app)
     };
 
