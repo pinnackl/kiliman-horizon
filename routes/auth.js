@@ -6,7 +6,7 @@ module.exports = (app) => {
     router.post('/login',
         app.middlewares.bodyParser.json(),
         app.middlewares.ensureFields(['username', 'password']),
-        app.middlewares.crypt.cryptPassword('password'), // Compare password
+        app.middlewares.findUser(app), 
         app.middlewares.localStrategy,
         app.middlewares.passport.authenticate('local'),
         app.actions.auth.login
