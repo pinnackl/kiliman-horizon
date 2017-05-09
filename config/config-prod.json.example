@@ -1,3 +1,10 @@
 {
-	
+    "db": {
+        "mongo": {
+            "url": "mongodb://YOUR_ADDRESS:27017"
+        }
+    },
+    "security": {
+        "salt": "YOUR_SALT"
+    }
 }
