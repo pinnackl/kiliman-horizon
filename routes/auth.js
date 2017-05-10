@@ -4,7 +4,7 @@ module.exports = (app) => {
     let router = new Router();
 
     router.post('/login',
-        app.middlewares.bodyParser.json(),
+        app.middlewares.bodyParser.urlencoded(true),
         app.middlewares.ensureFields(['username', 'password']),
         app.middlewares.findUser(app), 
         app.middlewares.localStrategy,
