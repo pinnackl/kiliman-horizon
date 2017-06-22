@@ -9,7 +9,11 @@ module.exports = (app, httpd) => {
         permissions: false,
         auto_create_index: true,
         auto_create_collection: true,
-        auth: { token_secret: app.hzConfig.token_secret }
+        auth: {
+            allow_anonymous: app.hzConfig.allow_anonymous,
+            allow_unauthenticated: app.hzConfig.allow_unauthenticated,
+            token_secret: app.hzConfig.token_secret
+        }
     };
     const horizonServer = horizon(httpd, options);
 
