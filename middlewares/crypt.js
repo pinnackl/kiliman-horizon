@@ -1,4 +1,5 @@
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt'); // Old
+const bcrypt = require('bcryptjs');
 
 module.exports = (app) => {
 
