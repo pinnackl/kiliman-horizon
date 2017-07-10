@@ -1,0 +1,75 @@
+# This is a TOML document
+
+[collections.alpinists]
+
+[collections.tags]
+
+[collections.users]
+
+[collections.articles]
+[[collections.articles.indexes]]
+fields = [["category"]]
+[[collections.articles.indexes]]
+fields = [["published"]]
+[[collections.articles.indexes]]
+fields = [["slug"]]
+[[collections.articles.indexes]]
+fields = [["title"]]
+[[collections.articles.indexes]]
+fields = [["trash"]]
+[[collections.articles.indexes]]
+fields = [["undefined"]]
+
+[collections.categories]
+
+[groups.admin]
+[groups.admin.rules.carte_blanche]
+template = "any()"
+
+[groups.authenticated]
+[groups.authenticated.rules.write_comments]
+template = "collection('comments').anyWrite({authorID: userId()})"
+
+[groups.default]
+[groups.default.rules.list_articles]
+template = "collection('articles')"
+[groups.default.rules.list_categories]
+template = "collection('categories')"
+[groups.default.rules.list_alpinists]
+template = "collection('alpinists')"
+[groups.default.rules.list_comments]
+template = "collection('comments')"
+[groups.default.rules.list_tags]
+template = "collection('tags')"
+[groups.default.rules.list_pages]
+template = "collection('pages')"
+[groups.default.rules.list_users]
+template = "collection('users')"
+[groups.default.rules.list_menu]
+template = "collection('menu')"
+[groups.default.rules.list_footer]
+template = "collection('footer')"
+
+[groups.editor]
+[groups.editor.rules.write_articles]
+template = "collection('articles').anyWrite({authorID: userId()})"
+[groups.editor.rules.write_pages]
+template = "collection('pages').anyWrite({authorID: userId()})"
+[groups.editor.rules.write_comments]
+template = "collection('comments').anyWrite({authorID: userId()})"
+[groups.editor.rules.write_categories]
+template = "collection('categories').anyWrite({authorID: userId()})"
+[groups.editor.rules.write_tags]
+template = "collection('tags').anyWrite({authorID: userId()})"
+
+[groups.moderator]
+[groups.moderator.rules.write_comments]
+template = "collection('comments').anyWrite()"
+[groups.moderator.rules.write_categories]
+template = "collection('categories').anyWrite()"
+[groups.moderator.rules.write_tags]
+template = "collection('tags').anyWrite()"
+[groups.moderator.rules.write_articles]
+template = "collection('articles').anyWrite()"
+[groups.moderator.rules.write_pages]
+template = "collection('pages').anyWrite()"
