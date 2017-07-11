@@ -6,6 +6,8 @@
 
 [collections.users]
 
+[collections.comments]
+
 [collections.articles]
 [[collections.articles.indexes]]
 fields = [["category"]]
