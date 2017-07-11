@@ -30,7 +30,9 @@ template = "any()"
 
 [groups.authenticated]
 [groups.authenticated.rules.write_comments]
-template = "collection('comments').anyWrite({authorID: userId()})"
+template = "collection('comments').anyWrite()"
+[groups.authenticated.rules.write_alpinists]
+template = "collection('alpinists').anyWrite()"
 
 [groups.default]
 [groups.default.rules.list_articles]
@@ -75,3 +77,5 @@ template = "collection('tags').anyWrite()"
 template = "collection('articles').anyWrite()"
 [groups.moderator.rules.write_pages]
 template = "collection('pages').anyWrite()"
+[groups.moderator.rules.write_alpinists]
+template = "collection('alpinists').anyWrite()"
