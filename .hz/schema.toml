@@ -4,6 +4,12 @@
 
 [collections.tags]
 
+[collections.menus]
+
+[collections.pages]
+
+[collections.footers]
+
 [collections.users]
 
 [collections.comments]
@@ -50,9 +56,9 @@ template = "collection('pages')"
 [groups.default.rules.list_users]
 template = "collection('users')"
 [groups.default.rules.list_menu]
-template = "collection('menu')"
+template = "collection('menus')"
 [groups.default.rules.list_footer]
-template = "collection('footer')"
+template = "collection('footers')"
 
 [groups.editor]
 [groups.editor.rules.write_articles]
