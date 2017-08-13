@@ -13,6 +13,7 @@ module.exports = (app) => {
 
     return {
         hzAsync,
+        getDatabaseCollections,
         getHorizonUser,
         makeLoginReply
     };
@@ -40,6 +41,10 @@ module.exports = (app) => {
         });
     }
 
+    function getDatabaseCollections() {
+        return hzAsync(app.conn, app.r.db(app.hzConfig.project_name).tableList());
+    }
+
     function getHorizonUser(username) {
         return new Promise(function(resolve, reject) {
             const q = () => app.r.db(app.hzConfig.project_name).table('users');
@@ -63,7 +68,7 @@ module.exports = (app) => {
                     resolve(result[0]);
                 })
                 .catch(reject);
-        })
+        });
     }
 
     // Function creates token for the given user.

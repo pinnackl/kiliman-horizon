@@ -3,6 +3,7 @@
 /////////////
 module.exports = (app) => {
     app.actions = {
-        auth: require('./auth')(app)
+        auth: require('./auth')(app),
+        collections: require('./collections')(app)
     }
 };
