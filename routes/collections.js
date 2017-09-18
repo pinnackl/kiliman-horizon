@@ -8,5 +8,9 @@ module.exports = (app) => {
         app.actions.collections.list
     );
 
+    router.get('/api/:collection', app.actions.collections.documents);
+
+    router.get('/api/:collection/:id', app.actions.collections.document);
+
     return router;
 };

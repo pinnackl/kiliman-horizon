@@ -14,6 +14,8 @@ module.exports = (app) => {
     return {
         hzAsync,
         getDatabaseCollections,
+        getDocuments,
+        getDocument,
         getHorizonUser,
         makeLoginReply
     };
@@ -43,6 +45,14 @@ module.exports = (app) => {
 
     function getDatabaseCollections() {
         return hzAsync(app.conn, app.r.db(app.hzConfig.project_name).tableList());
+    }
+
+    function getDocuments(collection) {
+        return hzAsync(app.conn, app.r.db(app.hzConfig.project_name).table(collection));
+    }
+
+    function getDocument(collection, id) {
+        return hzAsync(app.conn, app.r.db(app.hzConfig.project_name).table(collection).get(id));
     }
 
     function getHorizonUser(username) {

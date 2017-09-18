@@ -1,6 +1,8 @@
 module.exports = (app) => {
     return {
-        list
+        list,
+        documents,
+        document
     };
 
     // Return the list of collections in the database
@@ -20,6 +22,20 @@ module.exports = (app) => {
                 database: app.hzConfig.project_name,
                 collections: collections
             });
+        }).catch(res.error);
+    }
+
+    function documents (req, res, next) {
+        return app.horizon.adapter.getDocuments(req.params.collection)
+        .then(collections => {
+            res.json(collections);
+        }).catch(res.error);
+    }
+
+    function document (req, res, next) {
+        return app.horizon.adapter.getDocument(req.params.collection, req.params.id)
+        .then(document => {
+            res.json(document);
         }).catch(res.error);
     }
 };
